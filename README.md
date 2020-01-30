@@ -9,6 +9,10 @@ $ docker build .
 ```bash
 $ docker run -d --rm --privileged -p 53:53 -p 53:53/udp <IMAGE ID> /sbin/init
 ```
+or
+```bash
+$ docker-compose up -d
+```
 
 ## name resolution test
 ```bash
