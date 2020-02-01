@@ -108,3 +108,35 @@ $TTL 3600
 www              IN      A      192.168.11.1
 mng-server       IN      A      192.168.11.1
 ```
+Then, restart bind and request this record from dig.
+```bash
+$ dig www.dev.local @localhost
+
+; <<>> DiG 9.10.6 <<>> www.dev.local @localhost
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 37049
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.dev.local.			IN	A
+
+;; ANSWER SECTION:
+www.dev.local.		3600	IN	A	192.168.11.1
+
+;; AUTHORITY SECTION:
+dev.local.		3600	IN	NS	mng-server.dev.local.
+
+;; ADDITIONAL SECTION:
+mng-server.dev.local.	3600	IN	A	192.168.11.1
+
+;; Query time: 4 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Sat Feb 01 20:45:21 JST 2020
+;; MSG SIZE  rcvd: 99
+
+```
