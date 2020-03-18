@@ -1,9 +1,11 @@
 version: "3.7"
 services:
   bind:
-    container_name: "bind"
     build: .
+    container_name: "bind"
     ports:
       - "53:53"
       - "53:53/udp"
     privileged: true
+    volumes:
+      - ./files/var/named/zones:/var/named/zones

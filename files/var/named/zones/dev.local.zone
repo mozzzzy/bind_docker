@@ -14,14 +14,14 @@ $TTL 3600
 ;  * the record should be expired after 1 week from the primary dns server is down
 ;  * the negative cache of the record should be expired after 24 hour
 
-@                IN      SOA mng-server.dev.local. root.dev.local. (
-                         2020020101 ; serial
-                         3600       ; refresh 1hr
-                         900        ; retry 15min
-                         604800     ; expire 1w
-                         86400      ; min 24hr
+@                   IN      SOA mng-server.dev.local. root.dev.local. (
+                            2020020101 ; serial
+                            3600       ; refresh 1hr
+                            900        ; retry 15min
+                            604800     ; expire 1w
+                            86400      ; min 24hr
 )
 
-                 IN      NS     mng-server.dev.local.
-www              IN      A      192.168.11.1
-mng-server       IN      A      192.168.11.1
+                    IN      NS     mng-server.dev.local.
+www                 IN      A      192.168.11.1
+mng-server          IN      A      192.168.11.1

@@ -13,7 +13,6 @@ RUN yum install -y bind bind-utils
 
 # configure /etc/named.conf
 ADD files/etc/named.conf /etc/named.conf
-ADD files/var/named/dev.local.zone /var/named/dev.local.zone
 
 #
 # enable named
